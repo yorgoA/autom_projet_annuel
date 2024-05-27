@@ -27,12 +27,12 @@ the user is on the login page
     ${login_mdp_forgot} =  Get Json Value Str  ${data_login_page}  $.login_mdp_forgot
     ${login_button} =  Get Json Value Str  ${data_login_page}  $.login_button
     Wait Until Page Contains Element  xpath:${inscription_modal}  15
-    Wait Until Page Contains Element  xpath:${login_modal}  15
-    Wait Until Page Contains Element  xpath:${inscription_identifiant}  15
-    Wait Until Page Contains Element  xpath:${inscription_email}  15
-    Wait Until Page Contains Element  xpath:${inscription_mdp}  15
-    Wait Until Page Contains Element  xpath:${inscription_identifiant_club}  15
-    Wait Until Page Contains Element  xpath:${inscription_register_button}  15
+    Wait Until Page Contains Element  xpath:${login_modal}  
+    Wait Until Page Contains Element  xpath:${inscription_identifiant}  
+    Wait Until Page Contains Element  xpath:${inscription_email}  
+    Wait Until Page Contains Element  xpath:${inscription_mdp}  
+    Wait Until Page Contains Element  xpath:${inscription_identifiant_club}  
+    Wait Until Page Contains Element  xpath:${inscription_register_button}  
     Wait Until Page Contains Element  xpath:${login_identifiant}
     Wait Until Page Contains Element  xpath:${login_mdp}
     Wait Until Page Contains Element  xpath:${login_mdp_forgot}
