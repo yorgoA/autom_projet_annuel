@@ -1,0 +1,17 @@
+{
+    "inscription_modal":"/html/body/div[1]/div/div/div[1]/div",
+    "login_modal":"/html/body/div[1]/div/div/div[2]/div",
+    "inscription_modal_header":"/html/body/div[1]/div/div/div[1]/div/h2",
+    "login_modal_header":"/html/body/div[1]/div/div/div[2]/div/h2",
+    "inscription_identifiant":"/html/body/div[1]/div/div/div[1]/div/form/div[1]/input",
+    "inscription_email":"/html/body/div[1]/div/div/div[1]/div/form/div[2]/input",
+    "inscription_mdp":"/html/body/div[1]/div/div/div[1]/div/form/div[3]/input",
+    "inscription_identifiant_club":"/html/body/div[1]/div/div/div[1]/div/form/div[4]/input",
+    "inscription_register_button":"/html/body/div[1]/div/div/div[1]/div/form/button",
+    "login_identifiant":"/html/body/div[1]/div/div/div[2]/div/form/div[1]/input",
+    "login_mdp":"/html/body/div[1]/div/div/div[2]/div/form/div[2]/input",
+    "login_mdp_forgot":"/html/body/div[1]/div/div/div[2]/div/form/a",
+    "login_button":"/html/body/div[1]/div/div/div[2]/div/form/button"
+
+
+}

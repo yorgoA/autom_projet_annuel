@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.11.1 on darwin)" generated="20240527 13:08:28.844" rpa="false" schemaversion="3">
+<suite id="s1" name="Home page" source="/Users/yaoun/Desktop/autom_projet_annuel/Tests/Home_page.robot">
+<kw name="Set Custom Screenshot Directory" library="global_variables" type="SETUP">
+<arg>${SCREENSHOT_DIR}</arg>
+<kw name="Set Screenshot Directory" library="SeleniumLibrary">
+<arg>${SCREENSHOT_DIR}</arg>
+<doc>Sets the directory for captured screenshots.</doc>
+<status status="PASS" starttime="20240527 13:08:29.258" endtime="20240527 13:08:29.258"/>
+</kw>
+<kw name="Create Directory" library="OperatingSystem">
+<arg>${SCREENSHOT_DIR}</arg>
+<doc>Creates the specified directory.</doc>
+<msg timestamp="20240527 13:08:29.259" level="INFO" html="true">Directory '&lt;a href="file:///Users/yaoun/Desktop/autom_projet_annuel/Tests/Screenshots_home_page"&gt;/Users/yaoun/Desktop/autom_projet_annuel/Tests/Screenshots_home_page&lt;/a&gt;' already exists.</msg>
+<status status="PASS" starttime="20240527 13:08:29.259" endtime="20240527 13:08:29.259"/>
+</kw>
+<status status="PASS" starttime="20240527 13:08:29.258" endtime="20240527 13:08:29.259"/>
+</kw>
+<test id="s1-t1" name="SC01 - Pouvoir s’inscrire depuis la page d'accueil en tant qu’abonné mais non-inscrit" line="15">
+<kw name="Open Tennis Site" library="step_merger" type="SETUP">
+<kw name="Load Json From File" library="JSONLibrary">
+<var>${data_chosen}</var>
+<arg>%{RESOURCE}/Data/login_page.json</arg>
+<doc>Load JSON from file.</doc>
+<msg timestamp="20240527 13:08:29.261" level="INFO">${data_chosen} = {'inscription_modal': '/html/body/div[1]/div/div/div[1]/div', 'login_modal': '/html/body/div[1]/div/div/div[2]/div', 'inscription_modal_header': '/html/body/div[1]/div/div/div[1]/div/h2', 'login_modal...</msg>
+<status status="PASS" starttime="20240527 13:08:29.260" endtime="20240527 13:08:29.261"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${data_login_page}</arg>
+<arg>${data_chosen}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20240527 13:08:29.262" level="INFO">${data_login_page} = {'inscription_modal': '/html/body/div[1]/div/div/div[1]/div', 'login_modal': '/html/body/div[1]/div/div/div[2]/div', 'inscription_modal_header': '/html/body/div[1]/div/div/div[1]/div/h2', 'login_modal...</msg>
+<status status="PASS" starttime="20240527 13:08:29.261" endtime="20240527 13:08:29.262"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=add_argument("--disable-popup-blocking");add_argument("--ignore-certificate-errors");add_argument("--disable-extensions")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20240527 13:08:29.263" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000/home'.</msg>
+<status status="PASS" starttime="20240527 13:08:29.263" endtime="20240527 13:08:35.240"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20240527 13:08:35.241" endtime="20240527 13:08:35.686"/>
+</kw>
+<status status="PASS" starttime="20240527 13:08:29.260" endtime="20240527 13:08:35.687"/>
+</kw>
+<kw name="Given the user is on the login page" library="given">
+<kw name="Get Json Value Str" library="keywords">
+<var>${inscription_modal}</var>
+<arg>${data_login_page}</arg>
+<arg>$.inscription_modal</arg>
+<msg timestamp="20240527 13:08:35.689" level="INFO">${inscription_modal} = /html/body/div[1]/div/div/div[1]/div</msg>
+<status status="PASS" starttime="20240527 13:08:35.688" endtime="20240527 13:08:35.689"/>
+</kw>
+<kw name="Get Json Value Str" library="keywords">
+<var>${login_modal}</var>
+<arg>${data_login_page}</arg>
+<arg>$.login_modal</arg>
+<msg timestamp="20240527 13:08:35.690" level="INFO">${login_modal} = /html/body/div[1]/div/div/div[2]/div</msg>
+<status status="PASS" starttime="20240527 13:08:35.689" endtime="20240527 13:08:35.690"/>
+</kw>
+<kw name="Get Json Value Str" library="keywords">
+<var>${inscription_modal_header}</var>
+<arg>${data_login_page}</arg>
+<arg>$.inscription_modal_header</arg>
+<msg timestamp="20240527 13:08:35.693" level="INFO">${inscription_modal_header} = /html/body/div[1]/div/div/div[1]/div/h2</msg>
+<status status="PASS" starttime="20240527 13:08:35.692" endtime="20240527 13:08:35.693"/>
+</kw>
+<kw name="Get Json Value Str" library="keywords">
+<var>${login_modal_header}</var>
+<arg>${data_login_page}</arg>
+<arg>$.login_modal_header</arg>
+<msg timestamp="20240527 13:08:35.693" level="INFO">${login_modal_header} = /html/body/div[1]/div/div/div[2]/div/h2</msg>
+<status status="PASS" starttime="20240527 13:08:35.693" endtime="20240527 13:08:35.693"/>
+</kw>
+<kw name="Get Json Value Str" library="keywords">
+<var>${inscription_identifiant}</var>
+<arg>${data_login_page}</arg>
+<arg>$.inscription_identifiant</arg>
+<msg timestamp="20240527 13:08:35.694" level="INFO">${inscription_identifiant} = /html/body/div[1]/div/div/div[1]/div/form/div[1]/input</msg>
+<status status="PASS" starttime="20240527 13:08:35.693" endtime="20240527 13:08:35.694"/>
+</kw>
+<kw name="Get Json Value Str" library="keywords">
+<var>${inscription_email}</var>
+<arg>${data_login_page}</arg>
+<arg>$.inscription_email</arg>
+<msg timestamp="20240527 13:08:35.694" level="INFO">${inscription_email} = /html/body/div[1]/div/div/div[1]/div/form/div[2]/input</msg>
+<status status="PASS" starttime="20240527 13:08:35.694" endtime="20240527 13:08:35.694"/>
+</kw>
+<kw name="Get Json Value Str" library="keywords">
+<var>${inscription_mdp}</var>
+<arg>${data_login_page}</arg>
+<arg>$.inscription_mdp</arg>
+<msg timestamp="20240527 13:08:35.695" level="INFO">${inscription_mdp} = /html/body/div[1]/div/div/div[1]/div/form/div[3]/input</msg>
+<status status="PASS" starttime="20240527 13:08:35.695" endtime="20240527 13:08:35.695"/>
+</kw>
+<kw name="Get Json Value Str" library="keywords">
+<var>${inscription_identifiant_club}</var>
+<arg>${data_login_page}</arg>
+<arg>$.inscription_identifiant_club</arg>
+<msg timestamp="20240527 13:08:35.695" level="INFO">${inscription_identifiant_club} = /html/body/div[1]/div/div/div[1]/div/form/div[4]/input</msg>
+<status status="PASS" starttime="20240527 13:08:35.695" endtime="20240527 13:08:35.695"/>
+</kw>
+<kw name="Get Json Value Str" library="keywords">
+<var>${inscription_register_button}</var>
+<arg>${data_login_page}</arg>
+<arg>$.inscription_register_button</arg>
+<msg timestamp="20240527 13:08:35.696" level="INFO">${inscription_register_button} = /html/body/div[1]/div/div/div[1]/div/form/button</msg>
+<status status="PASS" starttime="20240527 13:08:35.696" endtime="20240527 13:08:35.696"/>
+</kw>
+<kw name="Get Json Value Str" library="keywords">
+<var>${login_identifiant}</var>
+<arg>${data_login_page}</arg>
+<arg>$.login_identifiant</arg>
+<msg timestamp="20240527 13:08:35.697" level="INFO">${login_identifiant} = /html/body/div[1]/div/div/div[2]/div/form/div[1]/input</msg>
+<status status="PASS" starttime="20240527 13:08:35.696" endtime="20240527 13:08:35.697"/>
+</kw>
+<kw name="Get Json Value Str" library="keywords">
+<var>${login_mdp}</var>
+<arg>${data_login_page}</arg>
+<arg>$.login_mdp</arg>
+<msg timestamp="20240527 13:08:35.697" level="INFO">${login_mdp} = /html/body/div[1]/div/div/div[2]/div/form/div[2]/input</msg>
+<status status="PASS" starttime="20240527 13:08:35.697" endtime="20240527 13:08:35.697"/>
+</kw>
+<kw name="Get Json Value Str" library="keywords">
+<var>${login_mdp_forgot}</var>
+<arg>${data_login_page}</arg>
+<arg>$.login_mdp_forgot</arg>
+<msg timestamp="20240527 13:08:35.698" level="INFO">${login_mdp_forgot} = /html/body/div[1]/div/div/div[2]/div/form/a</msg>
+<status status="PASS" starttime="20240527 13:08:35.697" endtime="20240527 13:08:35.698"/>
+</kw>
+<kw name="Get Json Value Str" library="keywords">
+<var>${login_button}</var>
+<arg>${data_login_page}</arg>
+<arg>$.login_button</arg>
+<msg timestamp="20240527 13:08:35.698" level="INFO">${login_button} = /html/body/div[1]/div/div/div[2]/div/form/button</msg>
+<status status="PASS" starttime="20240527 13:08:35.698" endtime="20240527 13:08:35.698"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>xpath:${inscription_modal}</arg>
+<arg>15</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240527 13:08:35.699" endtime="20240527 13:08:35.712"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>xpath:${login_modal}</arg>
+<arg>15</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240527 13:08:35.712" endtime="20240527 13:08:35.721"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>xpath:${inscription_identifiant}</arg>
+<arg>15</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240527 13:08:35.721" endtime="20240527 13:08:35.729"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>xpath:${inscription_email}</arg>
+<arg>15</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240527 13:08:35.729" endtime="20240527 13:08:35.738"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>xpath:${inscription_mdp}</arg>
+<arg>15</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240527 13:08:35.738" endtime="20240527 13:08:35.752"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>xpath:${inscription_identifiant_club}</arg>
+<arg>15</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240527 13:08:35.753" endtime="20240527 13:08:35.764"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>xpath:${inscription_register_button}</arg>
+<arg>15</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240527 13:08:35.764" endtime="20240527 13:08:35.772"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>xpath:${login_identifiant}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240527 13:08:35.773" endtime="20240527 13:08:35.780"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>xpath:${login_mdp}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240527 13:08:35.781" endtime="20240527 13:08:35.788"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>xpath:${login_mdp_forgot}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240527 13:08:35.789" endtime="20240527 13:08:35.797"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>xpath:${login_button}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240527 13:08:35.797" endtime="20240527 13:08:35.806"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>xpath:${inscription_modal_header}</arg>
+<arg>Rejoignez nous ! 🎾</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20240527 13:08:35.806" endtime="20240527 13:08:35.824"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>xpath:${login_modal_header}</arg>
+<arg>Un petit Match ? 🏆</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20240527 13:08:35.825" endtime="20240527 13:08:35.837"/>
+</kw>
+<status status="PASS" starttime="20240527 13:08:35.688" endtime="20240527 13:08:35.838"/>
+</kw>
+<kw name="When the user fills the subscription form" library="when">
+<kw name="Get Json Value Str" library="keywords">
+<var>${inscription_modal}</var>
+<arg>${data_login_page}</arg>
+<arg>$.inscription_modal</arg>
+<msg timestamp="20240527 13:08:35.838" level="INFO">${inscription_modal} = /html/body/div[1]/div/div/div[1]/div</msg>
+<status status="PASS" starttime="20240527 13:08:35.838" endtime="20240527 13:08:35.838"/>
+</kw>
+<kw name="Get Json Value Str" library="keywords">
+<var>${inscription_modal_header}</var>
+<arg>${data_login_page}</arg>
+<arg>$.inscription_modal_header</arg>
+<msg timestamp="20240527 13:08:35.839" level="INFO">${inscription_modal_header} = /html/body/div[1]/div/div/div[1]/div/h2</msg>
+<status status="PASS" starttime="20240527 13:08:35.838" endtime="20240527 13:08:35.839"/>
+</kw>
+<kw name="Get Json Value Str" library="keywords">
+<var>${inscription_identifiant}</var>
+<arg>${data_login_page}</arg>
+<arg>$.inscription_identifiant</arg>
+<msg timestamp="20240527 13:08:35.839" level="INFO">${inscription_identifiant} = /html/body/div[1]/div/div/div[1]/div/form/div[1]/input</msg>
+<status status="PASS" starttime="20240527 13:08:35.839" endtime="20240527 13:08:35.839"/>
+</kw>
+<kw name="Get Json Value Str" library="keywords">
+<var>${inscription_email}</var>
+<arg>${data_login_page}</arg>
+<arg>$.inscription_email</arg>
+<msg timestamp="20240527 13:08:35.839" level="INFO">${inscription_email} = /html/body/div[1]/div/div/div[1]/div/form/div[2]/input</msg>
+<status status="PASS" starttime="20240527 13:08:35.839" endtime="20240527 13:08:35.839"/>
+</kw>
+<kw name="Get Json Value Str" library="keywords">
+<var>${inscription_mdp}</var>
+<arg>${data_login_page}</arg>
+<arg>$.inscription_mdp</arg>
+<msg timestamp="20240527 13:08:35.840" level="INFO">${inscription_mdp} = /html/body/div[1]/div/div/div[1]/div/form/div[3]/input</msg>
+<status status="PASS" starttime="20240527 13:08:35.840" endtime="20240527 13:08:35.840"/>
+</kw>
+<kw name="Get Json Value Str" library="keywords">
+<var>${inscription_identifiant_club}</var>
+<arg>${data_login_page}</arg>
+<arg>$.inscription_identifiant_club</arg>
+<msg timestamp="20240527 13:08:35.840" level="INFO">${inscription_identifiant_club} = /html/body/div[1]/div/div/div[1]/div/form/div[4]/input</msg>
+<status status="PASS" starttime="20240527 13:08:35.840" endtime="20240527 13:08:35.840"/>
+</kw>
+<kw name="Get Json Value Str" library="keywords">
+<var>${inscription_register_button}</var>
+<arg>${data_login_page}</arg>
+<arg>$.inscription_register_button</arg>
+<msg timestamp="20240527 13:08:35.841" level="INFO">${inscription_register_button} = /html/body/div[1]/div/div/div[1]/div/form/button</msg>
+<status status="PASS" starttime="20240527 13:08:35.840" endtime="20240527 13:08:35.841"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath:${inscription_identifiant}</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240527 13:08:35.841" endtime="20240527 13:08:35.861"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath:${inscription_identifiant}</arg>
+<arg>Yorgo</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240527 13:08:35.861" level="INFO">Typing text 'Yorgo' into text field 'xpath:/html/body/div[1]/div/div/div[1]/div/form/div[1]/input'.</msg>
+<status status="PASS" starttime="20240527 13:08:35.861" endtime="20240527 13:08:36.028"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath:${inscription_email}</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240527 13:08:36.029" endtime="20240527 13:08:36.045"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath:${inscription_email}</arg>
+<arg>Yorgo@gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240527 13:08:36.047" level="INFO">Typing text 'Yorgo@gmail.com' into text field 'xpath:/html/body/div[1]/div/div/div[1]/div/form/div[2]/input'.</msg>
+<status status="PASS" starttime="20240527 13:08:36.046" endtime="20240527 13:08:36.121"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath:${inscription_mdp}</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240527 13:08:36.122" endtime="20240527 13:08:36.135"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath:${inscription_mdp}</arg>
+<arg>Test</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240527 13:08:36.135" level="INFO">Typing text 'Test' into text field 'xpath:/html/body/div[1]/div/div/div[1]/div/form/div[3]/input'.</msg>
+<status status="PASS" starttime="20240527 13:08:36.135" endtime="20240527 13:08:36.200"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath:${inscription_identifiant_club}</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240527 13:08:36.200" endtime="20240527 13:08:36.217"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath:${inscription_identifiant_club}</arg>
+<arg>1</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240527 13:08:36.217" level="INFO">Typing text '1' into text field 'xpath:/html/body/div[1]/div/div/div[1]/div/form/div[4]/input'.</msg>
+<status status="PASS" starttime="20240527 13:08:36.217" endtime="20240527 13:08:36.291"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath:${inscription_register_button}</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240527 13:08:36.292" endtime="20240527 13:08:36.313"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath:${inscription_register_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20240527 13:08:36.314" level="INFO">Clicking button 'xpath:/html/body/div[1]/div/div/div[1]/div/form/button'.</msg>
+<status status="PASS" starttime="20240527 13:08:36.313" endtime="20240527 13:08:36.361"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240527 13:08:46.364" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20240527 13:08:36.361" endtime="20240527 13:08:46.364"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20240527 13:08:47.494" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="Screenshots_home_page/selenium-screenshot-6.png"&gt;&lt;img src="Screenshots_home_page/selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20240527 13:08:46.364" endtime="20240527 13:08:47.494"/>
+</kw>
+<status status="PASS" starttime="20240527 13:08:35.838" endtime="20240527 13:08:47.494"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20240527 13:08:47.495" endtime="20240527 13:08:47.697"/>
+</kw>
+<status status="PASS" starttime="20240527 13:08:29.259" endtime="20240527 13:08:47.697"/>
+</test>
+<status status="PASS" starttime="20240527 13:08:28.845" endtime="20240527 13:08:47.698"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Home page">Home page</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20240527 13:08:29.257" level="WARN">Imported resource file '/Users/yaoun/Desktop/autom_projet_annuel/Resources/Common_steps/then.robot' is empty.</msg>
+</errors>
+</robot>
